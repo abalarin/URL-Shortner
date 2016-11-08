@@ -1,3 +1,7 @@
 # URL_Shortner
-## Attempt at a complete fully scalable URL shortening web app
-### Using: Node JS - Express - Jade
+### Attempt at a complete, scalable, URL shortening web app.
+### Using: 
+- Engine:     Node JS
+- Languages:  Javascript
+- Framework:  Express
+- Templating: Jade
