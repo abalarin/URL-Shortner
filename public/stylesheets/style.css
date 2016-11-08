@@ -1,17 +1,12 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-family: 'Rubik', sans-serif; 
 }
 
-.menuBar{
-  padding: 0;
-  margin: 0;
-  padding-left: 10%;
+h2 {
+    font-family: 'Rubik', sans-serif; 
+    color:gray
 }
-.menuBar li{
-  display: inline-block;
-  list-style-type: none;
-  padding-right: 20px;
-}
-.input{
-  padding-right: 15px;
+
+.center{
+    margin-top:10%;
 }

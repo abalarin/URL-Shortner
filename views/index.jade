@@ -1,10 +1,10 @@
 extends layout
 
 block content
-  h2(align="center" style="font-family:'Roboto', sans-serif") Generate Tiny URL
   
-  form(name='tinyURL', method='post' align="center")
-    div.input
+  form(name='tinyURL', method='post' align="center" class="center")
+    h2(align="center") generate tiny url
+    div 
         div(class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label")
             input(class="mdl-textfield__input" type="text" id="URL")
             label(class="mdl-textfield__label" for="URL") Url...
