@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 Generate Tiny URL
+  
+  form(name='tinyURL', method='post')
+    div.input
+      span.label URL
+      input(type="text", name="URL")
+      button(type="submit") Shorten
+      
+  p Welcome to #{title}
