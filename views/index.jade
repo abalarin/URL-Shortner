@@ -2,19 +2,12 @@ extends layout
 
 block content
   
-  form(name='tinyURL', method='post' align="center" class="center")
+  form(name="tinyURL" method="post" align="center")
     h2(align="center") generate tiny url
-    div 
-        div(class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label")
-            input(class="mdl-textfield__input" type="text" id="URL")
-            label(class="mdl-textfield__label" for="URL") Url...
-        div
+    div(class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label")
+      label(class="mdl-textfield__label" for="URL") Url...
+      input(class="mdl-textfield__input" type="text" name='URL')
+    div
       button(type="submit" class="mdl-button mdl-js-button mdl-button--raised") Shorten
   
-  - var URL_json = post
-  div
-    ul
-      //for url in URL_json
-        li 
-        
-        //#{title}    
+      p #{URL}
