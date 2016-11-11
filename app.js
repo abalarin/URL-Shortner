@@ -11,13 +11,13 @@ var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
+// connection to the db
 mongoose.connect('mongodb://localhost/tinyurl')
     .then(() =>  console.log('connection succesful'))
     .catch((err) => console.error(err));
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var tiny_url = require('./routes/url');
 
 var app = express();
 
@@ -35,7 +35,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/url', tiny_url);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
