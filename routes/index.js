@@ -9,10 +9,6 @@ console.log(base62.length);
   console.log(hv);
 
 
-var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose'), url = mongoose.model('Url');
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { URL: '' });
