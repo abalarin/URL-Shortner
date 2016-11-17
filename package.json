@@ -17,7 +17,7 @@
     "serve-favicon": "~2.3.0"
   },
   "description": "- Engine:     Node JS\r - Languages:  Javascript\r - Framework:  Express\r - Templating: Jade",
-  "main": "app.js",
+  "main": "server.js",
   "devDependencies": {
     "nodemon": "^1.11.0"
   },
