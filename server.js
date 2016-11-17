@@ -10,11 +10,11 @@ require('./data/models/url');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
-mongoose.Promise = global.Promise;
+//mongoose.Promise = global.Promise;
 // connection to the db
-mongoose.connect('mongodb://localhost/tinyurl')
-    .then(() =>  console.log('connection succesful'))
-    .catch((err) => console.error(err));
+// mongoose.connect('mongodb://localhost/tinyurl')
+//     .then(() =>  console.log('connection succesful'))
+//     .catch((err) => console.error(err));
 
 var index = require('./routes/index');
 var users = require('./routes/users');
