@@ -11,13 +11,15 @@ console.log(base62.length);
 
 var express = require('express');
 var router = express.Router();
+var mongoose = require('mongoose'), url = mongoose.model('Url');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  res.render('index', { URL: '' });
 });
 
 router.post('/', function(req, res, next) {
+<<<<<<< HEAD
   //console.log('the json', req.body);
 
   //doing a 64 base encoding proc on entered URL
@@ -48,3 +50,27 @@ function base10(){
 
 }
 module.exports = router;
+=======
+    // get the tiny url
+    
+    
+    // create a new object to store in the database
+    var newUrl = new url();
+    newUrl.url = req.body.URL;
+    // this should be the tiny URL
+    newUrl.tiny_url = req.body.URL;
+    
+    // save the object to the DB and report any error
+    newUrl.save(function (error){
+        if (error){
+            throw(error);
+        } else {
+            console.log("Success!");
+        }
+    });
+   console.log('the json', req.body.URL);
+   res.render('index', req.body);
+});
+
+module.exports = router;
+>>>>>>> 28d7b7943b2546b05088b276bda8c89ba712bb40
