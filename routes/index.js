@@ -66,6 +66,7 @@ router.post('/', function(req, res, next) {
     });
    console.log('the json', req.body.URL);
    res.render('index', req.body);
+  
 });
 
 module.exports = router;
