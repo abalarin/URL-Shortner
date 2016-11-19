@@ -1,16 +1,19 @@
 var express = require('express');
 var router = express.Router();
 
-var base62 = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-console.log(base62.length);
-  var s = 'asjdnfjasnrjl4r';
-  var hv = 0;
-  for (var i = 0; i < s.length; i++){
-    //console.log(s[i] +' : ' +s[i].charCodeAt(0));
-    hv = (127 * hv + s[i]) % 16908799;
-  }
-  //console.log(hv);
+//require the Twilio module and create a REST client
+var accountSid = 'ACea45b8f40c69d717e0b0c31d62b5f3e9';
+var authToken = 'c90bc2bbb89615700d63aa53cc96b03b';
 
+var client = require('twilio')(accountSid, authToken);
+function shorten(longURL){
+  var hash = '';
+  for (i=0; i < 3; i++){
+    var rand = Math.floor((Math.random() * (longURL.length-1)) + 1);
+    hash = hash + longURL[rand];
+  }
+  return hash;
+}
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -18,27 +21,15 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-//   //console.log('the json', req.body);
-//
   //doing a 64 base encoding proc on entered URL
   var url = req.body.URL;
-  //base62(url);
   var encoded = new Buffer(url).toString('base64');
-  //var url = parseInt(encoded, 10);
-  //console.log(encoded);
-  //var shorten = new Buffer(url).toString('base64');
-
-  //for (i=0; i < encoded.length; i++){
-  //  var c = encoded[i];
-  //}
 
 
   //Storing encoded url into JSON and passing it to html page.
   // next step: shorten encoding probably using some bit shiffting
   // and padding ends to fit in 3 char key.
-  //shorten = encoded.trunc(5)
-  //console.log(shorten);
-  url64 = 'www.example.com/' + encoded;
+  url64 = 'www.example.com/' + shorten(encoded);
   enc = {URL : url64}
 
 /* ----MONGODB STUFF-----
@@ -61,5 +52,15 @@ router.post('/', function(req, res, next) {
    res.render('index', enc);
 
 });
+
+function send(){
+  client.messages.create({
+      to: "+12103808155",
+      from: "+12015741835",
+      body: "This is the ship that made the Kessel Run in fourteen parsecs?",
+  }, function(err, message) {
+      console.log(message.sid);
+  });
+}
 
 module.exports = router;
