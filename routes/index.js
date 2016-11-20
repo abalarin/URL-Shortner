@@ -29,7 +29,12 @@ router.post('/', function(req, res, next) {
   //Storing encoded url into JSON and passing it to html page.
   // next step: shorten encoding probably using some bit shiffting
   // and padding ends to fit in 3 char key.
-  url64 = 'www.example.com/' + shorten(encoded);
+  if(url){
+    url64 = 'www.example.com/' + shorten(encoded);
+  }
+  else{
+    url64 = ''
+  }
   enc = {URL : url64}
 
 /* ----MONGODB STUFF-----
