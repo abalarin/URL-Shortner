@@ -53,6 +53,7 @@ router.post('/', function(req, res, next) {
 
 });
 
+//part of twillio api
 function send(){
   client.messages.create({
       to: "+12103808155",
